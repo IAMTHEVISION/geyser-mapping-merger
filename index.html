@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeyserMC Mapping Merger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">
+            <span class="brand-main">Pack</span><span class="brand-accent">Crafter</span>
+        </div>
+        <div class="nav-right">
+            <a class="nav-link" href="https://bedrockpacks.github.io/GeyserDisplayEntryConverter" target="_blank" rel="noopener">
+                Display Entry Converter <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="theme-toggle" id="themeToggle">
+            <i class="fa-solid fa-moon" id="iconDark"></i>
+            <i class="fa-regular fa-moon" id="iconLight" style="display:none"></i>
+        </button>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Model Mapping Merger</h1>
+                <p class="card-subtitle">Merge and sort GeyserMC custom model data mapping files</p>
+            </div>
+
+            <div class="upload-row">
+                <div class="upload-zone" id="dropZone1">
+                    <div class="zone-icon">↑</div>
+                    <div class="zone-label">First Mapping JSON</div>
+                    <div class="zone-hint">Drop file or click to browse</div>
+                    <div class="zone-file" id="zoneFile1">No file selected</div>
+                    <input type="file" id="fileInput1" accept=".json" hidden>
+                </div>
+
+                <div class="upload-zone" id="dropZone2">
+                    <div class="zone-icon">↑</div>
+                    <div class="zone-label">Second Mapping JSON</div>
+                    <div class="zone-hint">Drop file or click to browse</div>
+                    <div class="zone-file" id="zoneFile2">No file selected</div>
+                    <input type="file" id="fileInput2" accept=".json" hidden>
+                </div>
+            </div>
+
+            <div class="action-row">
+                <button class="btn btn-primary" id="mergeBtn">Merge Files</button>
+                <button class="btn btn-outline" id="downloadBtn" disabled>Download Merged ZIP</button>
+                <button class="btn btn-ghost" id="clearBtn">Clear All</button>
+            </div>
+
+            <div class="terminal" id="terminal">
+                <span class="terminal-placeholder">// Output will appear here after merging...</span>
+            </div>
+
+            <div class="stats-row" id="statsRow" style="display:none">
+                <div class="stat">
+                    <span class="stat-value" id="totalItems">0</span>
+                    <span class="stat-label">Total Items</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="uniqueTypes">0</span>
+                    <span class="stat-label">Unique Types</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="longestName">0</span>
+                    <span class="stat-label">Longest Name</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" id="avgLength">0</span>
+                    <span class="stat-label">Avg Name Len</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <span>© GeyserMC Merger Tool</span>
+        <span class="footer-sep">·</span>
+        <span>License: TheVISI0N</span>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
